@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+    <h2>conversion de devise</h2>
+    <div class="Groupe">
+        <label>Usd</label>
+        <input type="number" id="dollar" placeholder="Dollar">
+    </div>
+    <div class="Groupe">
+        <label>France</label>
+        <input type="number" id="euro" placeholder="euro">
+    </div>
+    <div class="Groupe">
+        <label>Mad</label>
+        <input type="number" id="mad" placeholder="mad">
+    </div>
+
+        </div>
+
+
+
+
+
+    <script>
+        let dollar =document.getElementById("dollar");
+let euro =document.getElementById("euro");
+let mad =document.getElementById("mad");
+
+dollar.addEventListener("input", function(){convDev(this.id, this.value);});
+euro.addEventListener("input", function(){convDev(this.id, this.value);});
+mad.addEventListener("input", function(){convDev(this.id, this.value);});
+
+function convDev( id, valeur){
+    if(id == "dollar"){
+        euro.value = valeur * 0.93;
+        mad.value = valeur * 10.83;
+    }else if(id == "euro"){
+        dollar.value = valeur * 1.03;
+        mad.value = valeur * 10.83;
+
+    }else if(id == "mad"){
+        dollar.value = valeur * 10;
+        euro.value = valeur * 0.090;
+    }
+
+    }
+
+    </script>
+</body>
+</html>
