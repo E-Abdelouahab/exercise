@@ -10,50 +10,58 @@
 <body>
     <div class="container">
         <div class="header">
-    <h2>conversion de devise</h2>
-    <div class="Groupe">
-        <label>Usd</label>
-        <input type="number" id="dollar" placeholder="Dollar">
-    </div>
-    <div class="Groupe">
-        <label>France</label>
-        <input type="number" id="euro" placeholder="euro">
-    </div>
-    <div class="Groupe">
-        <label>Mad</label>
-        <input type="number" id="mad" placeholder="mad">
-    </div>
-
-        </div>
-
-
-
-
-
-    <script>
-        let dollar =document.getElementById("dollar");
-let euro =document.getElementById("euro");
-let mad =document.getElementById("mad");
-
-dollar.addEventListener("input", function(){convDev(this.id, this.value);});
-euro.addEventListener("input", function(){convDev(this.id, this.value);});
-mad.addEventListener("input", function(){convDev(this.id, this.value);});
-
-function convDev( id, valeur){
-    if(id == "dollar"){
-        euro.value = valeur * 0.93;
-        mad.value = valeur * 10.83;
-    }else if(id == "euro"){
-        dollar.value = valeur * 1.03;
-        mad.value = valeur * 10.83;
-
-    }else if(id == "mad"){
-        dollar.value = valeur * 10;
-        euro.value = valeur * 0.090;
-    }
-
-    }
-
-    </script>
+            <h1>Currency Converter</h1>
+            <br><br>
+            <form name="converter">
+                <fieldset>
+                    <label>PAK Currency</label>
+                    <input type="number" name="rupees" required>
+                    <input type="button" value="Convert" onclick="currencyConverter(converter.rupees.value)"><br><br>
+                    
+                    <label>Dollar(American)</label>
+                    <input id="dollar"><br><br>
+     
+                    <label>Yuan(Chine)</label>
+                    <input id="yuan"><br><br>
+     
+                    <label>Won(Korea)</label>
+                    <input id="won"><br><br>
+     
+                    <label>Riyal(Saudia)</label>
+                    <input id="riyal"><br><br>
+     
+                    <label>Dinar(Kuwait)</label>
+                    <input id="dinar"><br><br>
+     
+                    <input type="reset" value="Reset Form">
+     
+                    <p>You Can press Reset Button for reseting the form</p>
+     
+                </fieldset>
+            </form>
+     
+              <!-- <div class="container">
+         <div class="header">
+           <h1>Currency Converter</h1>
+         </div>
+         <div class="date"></div>
+         <ul class="currencies"></ul>
+         <button class="add-currency-btn"><i class="fas fa-long-arrow-alt-left"></i>Add Currency</button>
+         <ul class="add-currency-list"></ul>
+       </div> -->
+            <script>
+                function currencyConverter(valNum){
+                    if(converter.rupees.value <= 0)
+                    window.alert("entrer Value Greaterthan");
+                    else{
+                        document.getElementById("dollar").value = (valNum/158.93).toFixed(2);
+                        document.getElementById("yuan").value = (valNum/23.12).toFixed(2);
+                        document.getElementById("won").value = (valNum/0.14).toFixed(2);
+                        document.getElementById("riyal").value = (valNum/42.37).toFixed(2);
+                        document.getElementById("dinar").value = (valNum/522.21).toFixed(2);
+     
+                    }
+                }
+            </script>
 </body>
 </html>
